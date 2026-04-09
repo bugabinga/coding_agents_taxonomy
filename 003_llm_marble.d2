@@ -1,0 +1,126 @@
+direction: right
+
+title: "The LLM"
+title.style.font-size: 28
+title.style.bold: true
+
+subtitle: "a token prediction machine"
+subtitle.style.font-size: 14
+subtitle.style.font-color: "#64748b"
+subtitle.style.italic: true
+
+# Input context window
+CW_IN: {
+  shape: rectangle
+  style.fill: "#f1f5f9"
+  style.stroke: "#94a3b8"
+  style.stroke-width: 2
+  label: "context window"
+
+  tokens: "The · cat · sat · eos" {
+    shape: text
+    style.font-size: 15
+    style.font-color: "#0f172a"
+    style.bold: true
+  }
+
+  empty: "· · ·" {
+    shape: text
+    style.font-size: 15
+    style.font-color: "#cbd5e1"
+  }
+
+  input_label: "input" {
+    shape: text
+    style.font-size: 11
+    style.font-color: "#94a3b8"
+    style.italic: true
+  }
+}
+
+CW_IN -> MACHINE: "prompt" {
+  style.stroke: "#f97066"
+  style.stroke-width: 3
+  style.font-color: "#f97066"
+  style.font-size: 12
+  style.bold: true
+}
+
+# Token prediction machine
+MACHINE: {
+  shape: rectangle
+  style.fill: "#f1f5f9"
+  style.stroke: "#94a3b8"
+  style.stroke-width: 2
+  style.font-size: 20
+  style.font-color: "#0f172a"
+  style.bold: true
+  label: "LLM\ntoken prediction\nmachine"
+}
+
+MACHINE -> CW_OUT: "response" {
+  style.stroke: "#22c55e"
+  style.stroke-width: 3
+  style.font-color: "#22c55e"
+  style.font-size: 12
+  style.bold: true
+}
+
+# Output context window: original + new tokens in one box
+CW_OUT: {
+  shape: rectangle
+  style.fill: "#f1f5f9"
+  style.stroke: "#94a3b8"
+  style.stroke-width: 2
+  label: "context window"
+
+  # original tokens
+  original: "The · cat · sat · eos" {
+    shape: text
+    style.font-size: 15
+    style.font-color: "#0f172a"
+    style.bold: true
+  }
+
+  # new tokens (green)
+  new: "on · the · mat" {
+    shape: text
+    style.font-size: 15
+    style.font-color: "#22c55e"
+    style.bold: true
+  }
+
+  output_label: "output" {
+    shape: text
+    style.font-size: 11
+    style.font-color: "#94a3b8"
+    style.italic: true
+  }
+}
+
+# Bottom explanatory text
+explanatory1: "every new token sees the entire context" {
+  shape: text
+  style.font-size: 13
+  style.font-color: "#64748b"
+}
+
+explanatory2: "repeat until done" {
+  shape: text
+  style.font-size: 13
+  style.font-color: "#94a3b8"
+  style.italic: true
+}
+
+legend_in: "The · cat · sat = prompt tokens" {
+  shape: text
+  style.font-size: 11
+  style.font-color: "#64748b"
+}
+
+legend_out: "on · the · mat = new tokens (result)" {
+  shape: text
+  style.font-size: 11
+  style.font-color: "#22c55e"
+  style.bold: true
+}
