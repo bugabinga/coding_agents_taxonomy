@@ -1,0 +1,61 @@
+vars: {
+	d2-config: {
+		layout-engine: elk
+	}
+}
+
+direction: right
+
+title: General Use Cases for AI in Coding {
+  shape: text
+  near: top-center
+  style: {
+    font-size: 55
+    bold: true
+  }
+}
+
+research: "Research, Learning and Docs" {
+	human: "Human"
+	chat: Chat Interface
+	llm: LLM
+
+	human -> chat: asks questions
+	chat -> llm: sends request
+	llm -> chat: returns response
+	chat -> human: displays response
+}
+
+fim: "Fill in the Middle Autocompletion" {
+	human: "Human"
+	editor: Editor
+	llm: FIM-LLM
+
+	human -> editor: types code
+	editor -> llm: provides context
+	llm -> editor: generates completion
+	editor -> human: displays completion
+}
+
+oneshot: "One-Shot Code Generation" {
+	human: "Human"
+	chat: Chat Interface
+	editor: Editor
+	llm: LLM
+
+	human -> chat: provides prompt and context
+	chat -> llm: sends request
+	llm -> editor: inserts response
+}
+
+harness: "Code Generation Harness" {
+	human: "Human"
+	harness: "Coding Harness"
+	context: System Context
+
+	human -> context: engineers
+	context -> harness: long running code gen
+	harness -> human: prompts for more context
+	human -> harness: feedback
+	harness -> context: extends
+}

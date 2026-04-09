@@ -1,102 +1,241 @@
 {
-  "_meta": {
-    "description": "Semantic color palette for LLM diagrams. All hex values are sRGB.",
-    "source_diagrams": [
-      "llm_diagram (technical)",
-      "llm_marble_v2 / llm_marble_v3 (marble machine)"
-    ]
-  },
-
-  "background": {
-    "page": { "hex": "#fafafa", "usage": "page / canvas background" },
-    "card": { "hex": "#ffffff", "usage": "card / panel background" },
-    "machine_bg": { "hex": "#f1f5f9", "usage": "marble machine interior" },
-    "inset_bg": { "hex": "#fefce8", "usage": "warm inset panels" }
-  },
-
-  "text": {
-    "title": { "hex": "#0f172a", "usage": "headings, titles" },
-    "body": { "hex": "#1e293b", "usage": "body text, labels" },
-    "muted": { "hex": "#64748b", "usage": "secondary text, captions" },
-    "subtle": { "hex": "#94a3b8", "usage": "tertiary text, hints" },
-    "faint": { "hex": "#cbd5e1", "usage": "placeholder, disabled" }
-  },
-
-  "border": {
-    "default": { "hex": "#cbd5e1", "usage": "default borders" },
-    "strong": { "hex": "#94a3b8", "usage": "emphasized borders" },
-    "focus": { "hex": "#64748b", "usage": "focused / active borders" }
-  },
-
-  "token": {
-    "coral": {
-      "fill": { "hex": "#f97066", "usage": "marble fill" },
-      "stroke": { "hex": "#b91c1c", "usage": "marble border" },
-      "text": { "hex": "#ffffff", "usage": "label on marble" }
-    },
-    "teal": {
-      "fill": { "hex": "#20c4b0", "usage": "marble fill" },
-      "stroke": { "hex": "#0f766e", "usage": "marble border" },
-      "text": { "hex": "#ffffff", "usage": "label on marble" }
-    },
-    "purple": {
-      "fill": { "hex": "#c084fc", "usage": "marble fill" },
-      "stroke": { "hex": "#7e22ce", "usage": "marble border" },
-      "text": { "hex": "#ffffff", "usage": "label on marble" }
-    },
-    "amber": {
-      "fill": { "hex": "#fbbf24", "usage": "marble fill" },
-      "stroke": { "hex": "#b45309", "usage": "marble border" },
-      "text": { "hex": "#ffffff", "usage": "label on marble" }
-    },
-    "green": {
-      "fill": { "hex": "#22c55e", "usage": "new token marble fill" },
-      "stroke": { "hex": "#15803d", "usage": "new token marble border" },
-      "text": { "hex": "#ffffff", "usage": "label on marble" }
-    },
-    "blue": {
-      "fill": { "hex": "#e0f2fe", "usage": "input section fill" },
-      "stroke": { "hex": "#0ea5e9", "usage": "input section border" },
-      "text": { "hex": "#0369a1", "usage": "input section label" }
-    },
-    "yellow": {
-      "fill": { "hex": "#fef3c7", "usage": "tokenize section fill" },
-      "stroke": { "hex": "#f59e0b", "usage": "tokenize section border" },
-      "text": { "hex": "#b45309", "usage": "tokenize section label" }
-    },
-    "pink": {
-      "fill": { "hex": "#ffe4e6", "usage": "output section fill" },
-      "stroke": { "hex": "#f43f5e", "usage": "output section border" },
-      "text": { "hex": "#be123c", "usage": "output section label" }
-    }
-  },
-
-  "machine": {
-    "body_fill": {
-      "hex": "#f1f5f9",
-      "usage": "marble machine body background"
-    },
-    "body_stroke": { "hex": "#94a3b8", "usage": "marble machine body border" },
-    "gear_fill": { "hex": "#e2e8f0", "usage": "gear / mechanism fill" },
-    "gear_stroke": { "hex": "#94a3b8", "usage": "gear / mechanism stroke" },
-    "brass_fill": { "hex": "#fde68a", "usage": "brass accent (light)" },
-    "brass_mid": { "hex": "#d97706", "usage": "brass accent (mid)" },
-    "brass_dark": { "hex": "#92400e", "usage": "brass accent (dark)" }
-  },
-
-  "arrow": {
-    "default": { "hex": "#64748b", "usage": "standard arrows" },
-    "brass": { "hex": "#d97706", "usage": "brass / warm arrows" }
-  },
-
-  "new_token": {
-    "badge_fill": { "hex": "#dcfce7", "usage": "new token badge background" },
-    "badge_stroke": { "hex": "#22c55e", "usage": "new token badge border" },
-    "text": { "hex": "#15803d", "usage": "new token badge label" }
-  },
-
-  "empty_slot": {
-    "fill": { "hex": "#f1f5f9", "usage": "empty token slot fill" },
-    "stroke": { "hex": "#cbd5e1", "usage": "empty token slot border" }
-  }
+	"_meta": {
+		"description": "Semantic color palette for LLM diagrams. All hex values are sRGB.",
+		"source_diagrams": [
+			"llm_diagram (technical)",
+			"llm_marble_v2 / llm_marble_v3 (marble machine)"
+		]
+	},
+	"background": {
+		"page": {
+			"hex": "#fafafa",
+			"usage": "page / canvas background"
+		},
+		"card": {
+			"hex": "#ffffff",
+			"usage": "card / panel background"
+		},
+		"machine_bg": {
+			"hex": "#f1f5f9",
+			"usage": "marble machine interior"
+		},
+		"inset_bg": {
+			"hex": "#fefce8",
+			"usage": "warm inset panels"
+		}
+	},
+	"text": {
+		"title": {
+			"hex": "#0f172a",
+			"usage": "headings, titles"
+		},
+		"body": {
+			"hex": "#1e293b",
+			"usage": "body text, labels"
+		},
+		"muted": {
+			"hex": "#64748b",
+			"usage": "secondary text, captions"
+		},
+		"subtle": {
+			"hex": "#94a3b8",
+			"usage": "tertiary text, hints"
+		},
+		"faint": {
+			"hex": "#cbd5e1",
+			"usage": "placeholder, disabled"
+		}
+	},
+	"border": {
+		"default": {
+			"hex": "#cbd5e1",
+			"usage": "default borders"
+		},
+		"strong": {
+			"hex": "#94a3b8",
+			"usage": "emphasized borders"
+		},
+		"focus": {
+			"hex": "#64748b",
+			"usage": "focused / active borders"
+		}
+	},
+	"token": {
+		"coral": {
+			"fill": {
+				"hex": "#f97066",
+				"usage": "marble fill"
+			},
+			"stroke": {
+				"hex": "#b91c1c",
+				"usage": "marble border"
+			},
+			"text": {
+				"hex": "#ffffff",
+				"usage": "label on marble"
+			}
+		},
+		"teal": {
+			"fill": {
+				"hex": "#20c4b0",
+				"usage": "marble fill"
+			},
+			"stroke": {
+				"hex": "#0f766e",
+				"usage": "marble border"
+			},
+			"text": {
+				"hex": "#ffffff",
+				"usage": "label on marble"
+			},
+		},
+		"purple": {
+			"fill": {
+				"hex": "#c084fc",
+				"usage": "marble fill"
+			},
+			"stroke": {
+				"hex": "#7e22ce",
+				"usage": "marble border"
+			},
+			"text": {
+				"hex": "#ffffff",
+				"usage": "label on marble"
+			}
+		},
+		"amber": {
+			"fill": {
+				"hex": "#fbbf24",
+				"usage": "marble fill"
+			},
+			"stroke": {
+				"hex": "#b45309",
+				"usage": "marble border"
+			},
+			"text": {
+				"hex": "#ffffff",
+				"usage": "label on marble"
+			}
+		},
+		"green": {
+			"fill": {
+				"hex": "#22c55e",
+				"usage": "new token marble fill"
+			},
+			"stroke": {
+				"hex": "#15803d",
+				"usage": "new token marble border"
+			},
+			"text": {
+				"hex": "#ffffff",
+				"usage": "label on marble"
+			}
+		},
+		"blue": {
+			"fill": {
+				"hex": "#e0f2fe",
+				"usage": "input section fill"
+			},
+			"stroke": {
+				"hex": "#0ea5e9",
+				"usage": "input section border"
+			},
+			"text": {
+				"hex": "#0369a1",
+				"usage": "input section label"
+			}
+		},
+		"yellow": {
+			"fill": {
+				"hex": "#fef3c7",
+				"usage": "tokenize section fill"
+			},
+			"stroke": {
+				"hex": "#f59e0b",
+				"usage": "tokenize section border"
+			},
+			"text": {
+				"hex": "#b45309",
+				"usage": "tokenize section label"
+			}
+		},
+		"pink": {
+			"fill": {
+				"hex": "#ffe4e6",
+				"usage": "output section fill"
+			},
+			"stroke": {
+				"hex": "#f43f5e",
+				"usage": "output section border"
+			},
+			"text": {
+				"hex": "#be123c",
+				"usage": "output section label"
+			}
+		}
+	},
+	"machine": {
+		"body_fill": {
+			"hex": "#f1f5f9",
+			"usage": "marble machine body background"
+		},
+		"body_stroke": {
+			"hex": "#94a3b8",
+			"usage": "marble machine body border"
+		},
+		"gear_fill": {
+			"hex": "#e2e8f0",
+			"usage": "gear / mechanism fill"
+		},
+		"gear_stroke": {
+			"hex": "#94a3b8",
+			"usage": "gear / mechanism stroke"
+		},
+		"brass_fill": {
+			"hex": "#fde68a",
+			"usage": "brass accent (light)"
+		},
+		"brass_mid": {
+			"hex": "#d97706",
+			"usage": "brass accent (mid)"
+		},
+		"brass_dark": {
+			"hex": "#92400e",
+			"usage": "brass accent (dark)"
+		}
+	},
+	"arrow": {
+		"default": {
+			"hex": "#64748b",
+			"usage": "standard arrows"
+		},
+		"brass": {
+			"hex": "#d97706",
+			"usage": "brass / warm arrows"
+		}
+	},
+	"new_token": {
+		"badge_fill": {
+			"hex": "#dcfce7",
+			"usage": "new token badge background"
+		},
+		"badge_stroke": {
+			"hex": "#22c55e",
+			"usage": "new token badge border"
+		},
+		"text": {
+			"hex": "#15803d",
+			"usage": "new token badge label"
+		}
+	},
+	"empty_slot": {
+		"fill": {
+			"hex": "#f1f5f9",
+			"usage": "empty token slot fill"
+		},
+		"stroke": {
+			"hex": "#cbd5e1",
+			"usage": "empty token slot border"
+		}
+	}
 }

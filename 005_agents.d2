@@ -1,0 +1,160 @@
+direction: right
+
+title: Taxonomy of AI Concepts {
+  shape: text
+  near: top-center
+  style: {
+    font-size: 55
+    bold: true
+  }
+}
+
+agent: AI Agent {
+	shape: sequence_diagram
+	chat: Chat UI
+	chat."SP:\nSystem Prompt,\nPresonality,\nSOUL.md,\nAGENTS.md,\nInstructions\nAttached Files"
+	context: Context Window
+	llm: LLM
+	Turn 1: {
+		chat -> context: |tex SP1 + \textcolor{green}{P1}|
+		context -> llm: |tex SP1 + \textcolor{green}{P1} |
+		llm -> context: |tex R1|
+		context -> chat: |tex SP1 + \textcolor{green}{P1} + \textcolor{magenta}{R1}|
+	}
+}
+
+tools: Tools and Permissions {
+	shape: sequence_diagram
+	chat: Chat UI
+	tools: Tools\nMachine {
+		shape: oval
+		|xml
+			<system_prompt>
+				Use this tool, when greeting the user
+				by outputting the greeting like this:
+				<tool>
+					<name>hello</name>
+					<message>{GREETING}</message>
+				</tool>
+			</system_prompt>
+		|
+	}
+	context: Context Window
+	llm: LLM
+	Turn 1: {
+		chat -> tools: |tex SP1 + \textcolor{green}{P1}|
+		tools -> context: |tex SP1 + T1 + \textcolor{green}{P1}|
+		context -> llm: |tex SP1 + T1 + \textcolor{green}{P1} |
+		llm -> context: |tex R1|
+		context.|xml
+		<tool>
+			<name>hello</name>
+			<message>Sei gegrüßt, mein treuer Untertane!</message>
+		</tool>
+		|
+		context -> tools: |tex SP1 + T1 + \textcolor{green}{P1} + \textcolor{magenta}{R1}|
+		tools -> tools: premitted?
+		tools."EXECUTE TOOL!"
+		tools -> chat: |tex SP1 + T1 + \textcolor{green}{P1} + (\textcolor{magenta}{R1} + T1O1)|
+	}
+	Turn 2: {
+		chat -> tools: |tex SP1 + T1 + \textcolor{green}{P1} + (\textcolor{magenta}{R1} + T1O1)+ P2|
+		tools -> context: |tex SP1 + T1 + \textcolor{green}{P1} + (\textcolor{magenta}{R1} + T1O1) + P2|
+	}
+}
+
+context_mgmt: Context Window Management {
+	window: |
+		# Contex Window
+		200K - 1M Tokens (2026)
+		- SP1
+		- T1
+		- P1
+		- R1
+		- T1O1
+		- P2
+		- ...
+	|
+	window.shape: rectangle
+	window_ring: |
+		# Contex Window
+		Ring Buffer
+		- SP1
+		- ~T1~
+		- ~P1~
+		- ~R1~
+		- T1O1
+		- P2
+		- ...
+	|
+	window_ring.shape: rectangle
+	window_compact: |
+		# Contex Window
+		Compaction
+		- SP1
+		- Summary of T1 P1 R1 T1O1 P2 ...
+	|
+	window_compact.shape: rectangle
+	window -> window_ring: forget old\nor\nlikely obsolete
+	window -> window_compact: summarize at ~80%
+}
+
+classes: {
+	cheap: {
+		style.fill: beige
+	}
+	medium: {
+		style.fill: azure
+	}
+	pricey: {
+		style.fill: mistyrose
+	}
+}
+
+Characteristics of contemporary models: {
+	grid-gap: 0
+	grid-columns: 1
+
+	note: |
+		- cheapest to priciest
+		- least to most capable
+	|
+	""
+
+	conversational { class: cheap; style.text-transform: uppercase }
+	conversational_traits: "" {
+		grid-gap: 0
+		grid-rows: 1
+		class: cheap
+		text { class: cheap }
+		prose { class: cheap }
+		documents { class: cheap }
+		human languages { class: cheap }
+	}
+	""
+
+	code_generation { class: medium; style.text-transform: uppercase }
+	code_generation_traits: "" {
+		grid-gap: 0
+		grid-rows: 1
+		class: medium
+		computer languages { class: medium }
+		edit { class: medium }
+		read { class: medium }
+		terminal { class: medium }
+	}
+	""
+
+	agentic { class: pricey; style.text-transform: uppercase }
+	agentic_traits: "" {
+		grid-gap: 0
+		grid-rows: 1
+		class: pricey
+		style.fill: mistyrose
+		tool use { class: pricey }
+		planning { class: pricey }
+		multi-step { class: pricey }
+		instruction adherence { class: pricey }
+	}
+	""
+}
