@@ -1,0 +1,10 @@
+ defaults:
+   theme: catppuccin-latte
+   image_protocol: kitty-local
+   terminal_font_size: 16
+   max_columns: 120
+   max_columns_alignment: center
+   validate_overflows: when_presenting
+   incremental_lists:
+     pause_before: true
+     pause_after: true
